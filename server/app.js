@@ -24,7 +24,9 @@ app.use(cors());
 
 async function connect() {
 	try {
-		await mongoose.connect('mongodb://localhost:27017/recipes-app');
+		await mongoose.connect(
+			'mongodb+srv://shawngu12:009447880ghulK$@cluster0.jmvcq.mongodb.net/?retryWrites=true&w=majority'
+		);
 		// loadPresetData();
 	} catch (err) {
 		throw err;
