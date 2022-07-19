@@ -1,0 +1,17 @@
+.AboutContainer {
+	margin: 30px;
+	padding-top: 30px;
+}
+
+.sign {
+	font-style: italic;
+	color: rgb(109, 109, 109);
+}
+
+p {
+	text-align: center;
+}
+
+.AboutContainer h2 {
+	text-align: center;
+}
