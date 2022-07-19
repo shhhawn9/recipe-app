@@ -1,12 +1,12 @@
 const getRecipes = async () => {
-	const response = await fetch('http://localhost:3001/recipes', {
+	const response = await fetch('/recipes', {
 		method: 'GET',
 	});
 	return await response.json();
 };
 
 const getRecipeByID = async (id) => {
-	const response = await fetch('http://localhost:3001/recipes/' + id, {
+	const response = await fetch('/recipes/' + id, {
 		method: 'GET',
 	});
 	return await response.json();
@@ -14,7 +14,7 @@ const getRecipeByID = async (id) => {
 
 const addRecipe = async (recipe) => {
 	// const josnrecipe = JSON.stringify(recipe);
-	const response = await fetch('http://localhost:3001/recipes', {
+	const response = await fetch('/recipes', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
@@ -30,28 +30,28 @@ const addRecipe = async (recipe) => {
 };
 
 const deleteAllRecipes = async () => {
-	const response = await fetch('http://localhost:3001/recipes', {
+	const response = await fetch('/recipes', {
 		method: 'DELETE',
 	});
 	return await response.json();
 };
 
 const deleteRecipe = async (id) => {
-	const response = await fetch('http://localhost:3001/recipes/' + id, {
+	const response = await fetch('/recipes/' + id, {
 		method: 'DELETE',
 	});
 	return await response.json();
 };
 
 const sortAllRecipes = async () => {
-	const response = await fetch('http://localhost:3001/recipes', {
+	const response = await fetch('/recipes', {
 		method: 'PUT',
 	});
 	return await response.json();
 };
 
 const editRecipeByID = async (recipe) => {
-	const response = await fetch('http://localhost:3001/recipes/' + recipe._id, {
+	const response = await fetch('/recipes/' + recipe._id, {
 		method: 'PUT',
 		headers: {
 			'Content-Type': 'application/json',
