@@ -23,16 +23,15 @@ jobs:
             - name: Use Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v3
               with:
-                  path: ./client
                   node-version: ${{ matrix.node-version }}
                   cache: 'npm'
             - run: npm run build
+              working-directory: ./client
 
             - uses: actions/checkout@v2
             - name: Deploy to Heroku
               uses: akhileshns/heroku-deploy@v3.12.12
               with:
-                  path: ./
                   heroku_api_key: 543ad11c-c5fb-41c4-8f3f-550952d6b51f
                   heroku_app_name: 'recipe-app-455' #Must be unique in Heroku
                   heroku_email: 'shawngu12@gmail.com'
