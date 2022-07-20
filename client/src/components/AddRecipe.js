@@ -43,7 +43,7 @@ export default function Form() {
 	return (
 		<div className="AddRecipe">
 			<form>
-				<Label name="Add Recipe" />
+				<Label name="Add Recipes" />
 				<Input
 					size="Input"
 					type="text"
