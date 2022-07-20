@@ -4,36 +4,35 @@
 name: Node.js CI
 
 on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    push:
+        branches: ['master']
+    pull_request:
+        branches: ['master']
 
 jobs:
-  build:
+    build:
+        runs-on: ubuntu-latest
 
-    runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [16.x]
+                # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
-    strategy:
-      matrix:
-        node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-        
-    steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        path: ./client
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: 
-        npm run build
+        steps:
+            - uses: actions/checkout@v3
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v3
+              with:
+                  path: ./client
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'npm'
+            - run: npm run build
 
-    - uses: actions/checkout@v2
-    - name: Deploy to Heroku
-      uses: akhileshns/heroku-deploy@v3.12.12
-      with:
-        heroku_api_key: 543ad11c-c5fb-41c4-8f3f-550952d6b51f
-        heroku_app_name: "recipe-app-455" #Must be unique in Heroku
-        heroku_email: "shawngu12@gmail.com"
+            - uses: actions/checkout@v2
+            - name: Deploy to Heroku
+              uses: akhileshns/heroku-deploy@v3.12.12
+              with:
+                  path: ./
+                  heroku_api_key: 543ad11c-c5fb-41c4-8f3f-550952d6b51f
+                  heroku_app_name: 'recipe-app-455' #Must be unique in Heroku
+                  heroku_email: 'shawngu12@gmail.com'
