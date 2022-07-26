@@ -41,7 +41,7 @@ export default function Form() {
 	}
 
 	return (
-		<div className="AddRecipe">
+		<div className="AddRecipes">
 			<form>
 				<Label name="Add Recipe" />
 				<Input
